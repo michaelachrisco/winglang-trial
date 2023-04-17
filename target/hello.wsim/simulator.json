@@ -1,0 +1,51 @@
+{
+  "resources": [
+    {
+      "type": "wingsdk.cloud.TestRunner",
+      "path": "root/cloud.TestRunner",
+      "props": {
+        "tests": {}
+      },
+      "attrs": {}
+    },
+    {
+      "type": "wingsdk.cloud.Bucket",
+      "path": "root/Default/cloud.Bucket",
+      "props": {
+        "public": false,
+        "initialObjects": {},
+        "topics": {}
+      },
+      "attrs": {}
+    },
+    {
+      "type": "wingsdk.cloud.Function",
+      "path": "root/Default/cloud.Queue-AddConsumer-de95ec56",
+      "props": {
+        "sourceCodeFile": ".wing/cloud.queue-addconsumer-de95ec56_c87e0324.js",
+        "sourceCodeLanguage": "javascript",
+        "environmentVariables": {
+          "BUCKET_HANDLE_2cd0933d": "${root/Default/cloud.Bucket#attrs.handle}"
+        },
+        "timeout": 60000
+      },
+      "attrs": {}
+    },
+    {
+      "type": "wingsdk.cloud.Queue",
+      "path": "root/Default/cloud.Queue",
+      "props": {
+        "timeout": 10,
+        "subscribers": [
+          {
+            "functionHandle": "${root/Default/cloud.Queue-AddConsumer-de95ec56#attrs.handle}",
+            "batchSize": 1
+          }
+        ],
+        "initialMessages": []
+      },
+      "attrs": {}
+    }
+  ],
+  "sdkVersion": "0.12.1"
+}

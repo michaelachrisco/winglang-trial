@@ -1,0 +1,235 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "root",
+    "path": "root",
+    "children": {
+      "cloud.TestRunner": {
+        "id": "cloud.TestRunner",
+        "path": "root/cloud.TestRunner",
+        "attributes": {
+          "wing:resource:stateful": false,
+          "wing:resource:connections": []
+        },
+        "constructInfo": {
+          "fqn": "constructs.Construct",
+          "version": "10.1.313"
+        },
+        "display": {
+          "title": "TestRunner",
+          "description": "A suite of APIs for running tests and collecting results.",
+          "hidden": true
+        }
+      },
+      "Default": {
+        "id": "Default",
+        "path": "root/Default",
+        "children": {
+          "cloud.Bucket": {
+            "id": "cloud.Bucket",
+            "path": "root/Default/cloud.Bucket",
+            "attributes": {
+              "wing:resource:stateful": true,
+              "wing:resource:connections": [
+                {
+                  "direction": "inbound",
+                  "relationship": "delete",
+                  "resource": "root/Default/cloud.Queue-AddConsumer-de95ec56",
+                  "implicit": false
+                },
+                {
+                  "direction": "inbound",
+                  "relationship": "get",
+                  "resource": "root/Default/cloud.Queue-AddConsumer-de95ec56",
+                  "implicit": false
+                },
+                {
+                  "direction": "inbound",
+                  "relationship": "get_json",
+                  "resource": "root/Default/cloud.Queue-AddConsumer-de95ec56",
+                  "implicit": false
+                },
+                {
+                  "direction": "inbound",
+                  "relationship": "list",
+                  "resource": "root/Default/cloud.Queue-AddConsumer-de95ec56",
+                  "implicit": false
+                },
+                {
+                  "direction": "inbound",
+                  "relationship": "public_url",
+                  "resource": "root/Default/cloud.Queue-AddConsumer-de95ec56",
+                  "implicit": false
+                },
+                {
+                  "direction": "inbound",
+                  "relationship": "put",
+                  "resource": "root/Default/cloud.Queue-AddConsumer-de95ec56",
+                  "implicit": false
+                },
+                {
+                  "direction": "inbound",
+                  "relationship": "put_json",
+                  "resource": "root/Default/cloud.Queue-AddConsumer-de95ec56",
+                  "implicit": false
+                }
+              ]
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.1.313"
+            },
+            "display": {
+              "title": "Bucket",
+              "description": "A cloud object store"
+            }
+          },
+          "cloud.Queue": {
+            "id": "cloud.Queue",
+            "path": "root/Default/cloud.Queue",
+            "attributes": {
+              "wing:resource:stateful": true,
+              "wing:resource:connections": [
+                {
+                  "direction": "outbound",
+                  "relationship": "add_consumer",
+                  "resource": "root/Default/cloud.Queue-AddConsumer-de95ec56",
+                  "implicit": false
+                }
+              ]
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.1.313"
+            },
+            "display": {
+              "title": "Queue",
+              "description": "A distributed message queue"
+            }
+          },
+          "$Inflight1": {
+            "id": "$Inflight1",
+            "path": "root/Default/$Inflight1",
+            "attributes": {
+              "wing:resource:stateful": false,
+              "wing:resource:connections": [
+                {
+                  "direction": "inbound",
+                  "relationship": "handle",
+                  "resource": "root/Default/cloud.Queue-AddConsumer-de95ec56",
+                  "implicit": false
+                }
+              ]
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.1.313"
+            },
+            "display": {
+              "title": "Inflight",
+              "description": "An inflight resource",
+              "hidden": true
+            }
+          },
+          "cloud.Queue-AddConsumerHandler-de95ec56": {
+            "id": "cloud.Queue-AddConsumerHandler-de95ec56",
+            "path": "root/Default/cloud.Queue-AddConsumerHandler-de95ec56",
+            "attributes": {
+              "wing:resource:stateful": false,
+              "wing:resource:connections": []
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.1.313"
+            },
+            "display": {
+              "hidden": true
+            }
+          },
+          "cloud.Queue-AddConsumer-de95ec56": {
+            "id": "cloud.Queue-AddConsumer-de95ec56",
+            "path": "root/Default/cloud.Queue-AddConsumer-de95ec56",
+            "attributes": {
+              "wing:resource:stateful": false,
+              "wing:resource:connections": [
+                {
+                  "direction": "outbound",
+                  "relationship": "delete",
+                  "resource": "root/Default/cloud.Bucket",
+                  "implicit": false
+                },
+                {
+                  "direction": "outbound",
+                  "relationship": "get",
+                  "resource": "root/Default/cloud.Bucket",
+                  "implicit": false
+                },
+                {
+                  "direction": "outbound",
+                  "relationship": "get_json",
+                  "resource": "root/Default/cloud.Bucket",
+                  "implicit": false
+                },
+                {
+                  "direction": "outbound",
+                  "relationship": "list",
+                  "resource": "root/Default/cloud.Bucket",
+                  "implicit": false
+                },
+                {
+                  "direction": "outbound",
+                  "relationship": "public_url",
+                  "resource": "root/Default/cloud.Bucket",
+                  "implicit": false
+                },
+                {
+                  "direction": "outbound",
+                  "relationship": "put",
+                  "resource": "root/Default/cloud.Bucket",
+                  "implicit": false
+                },
+                {
+                  "direction": "outbound",
+                  "relationship": "put_json",
+                  "resource": "root/Default/cloud.Bucket",
+                  "implicit": false
+                },
+                {
+                  "direction": "outbound",
+                  "relationship": "handle",
+                  "resource": "root/Default/$Inflight1",
+                  "implicit": false
+                },
+                {
+                  "direction": "inbound",
+                  "relationship": "add_consumer",
+                  "resource": "root/Default/cloud.Queue",
+                  "implicit": false
+                }
+              ]
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.1.313"
+            },
+            "display": {
+              "title": "Function",
+              "description": "A cloud function (FaaS)"
+            }
+          }
+        },
+        "attributes": {
+          "wing:resource:connections": []
+        },
+        "constructInfo": {
+          "fqn": "constructs.Construct",
+          "version": "10.1.313"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "constructs.Construct",
+      "version": "10.1.313"
+    }
+  }
+}
